@@ -1,0 +1,7 @@
+IMAGE CREDITS:
+
+(in /flask_app/static/site_assets/):
+logo.png - https://emojiterra.com/spiral-calendar/
+
+(in /flask_app/static/user_assets/account_images/): 
+prof-pic.png - https://pixabay.com/vectors/blank-profile-picture-mystery-man-973460/

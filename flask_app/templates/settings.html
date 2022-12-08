@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Fav and Title -->
+    <link rel="icon" href="{{url_for('static',filename='/site_assets/logo.png')}}">
+    <title>Everyday</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+    <!-- Halfmoon -->
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon.min.css" rel="stylesheet" />
+    <!-- Roboto font (Used when Apple system fonts are not available) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-sidebar-shortcut-enabled="true">
+
+    <!-- Page wrapper start -->
+    <div id="page-wrapper" class="page-wrapper with-navbar with-navbar-fixed-bottom" data-sidebar-type="overlayed-sm-and-down">
+
+        <!-- Navbar start -->
+        <nav class="navbar">
+            <!-- Navbar brand -->
+            <a href="/all_days" class="navbar-brand ml-10 ml-sm-20">
+                <span class="d-none d-sm-flex text-secondary">Everyday</span>
+            </a>
+            <!-- Navbar nav -->
+            <ul class="navbar-nav d-none d-md-flex">
+                <!-- d-none = display: none, d-md-flex = display: flex on medium screens and up (width > 768px) -->
+                <li class="nav-item active">
+                    <a href="/settings" class="nav-link">My Account</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/my_day" class="nav-link">My Day</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/all_days" class="nav-link">All Days</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/find_friends" class="nav-link">Find Friends</a>
+                </li>
+            </ul>
+            <!-- Navbar account name and logout -->
+            <div class="navbar-content d-none d-md-flex ml-auto">
+                <ul class="navbar-nav mt-20 mr-10">
+                    <li class="nav-item d-flex mb-20 align-items-center">
+                        <img src="{{url_for('static', filename=user_info.avatar)}}" class="avatar-small" alt="avatar image">
+                        <span class="text-success">&nbsp; {{user_info.username}}</span>
+                    </li>
+                </ul>
+                <a href="/logout" class="btn btn-primary mr-10" role="button">Logout</a>
+            </div>
+            <!-- Drop down content -->
+            <div class="navbar-content d-md-none ml-auto">
+                <!-- d-md-none = display: none on medium screens and up (width > 768px), ml-auto = margin-left: auto -->
+                <div class="dropdown with-arrow">
+                    <button class="btn" data-toggle="dropdown" type="button" id="navbar-dropdown-toggle-btn-1">
+                        Menu
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right w-200" aria-labelledby="navbar-dropdown-toggle-btn-1">
+                        <!-- w-200 = width: 20rem (200px) -->
+                        <div class="dropdown-item d-flex align-items-center">
+                            <img src="{{url_for('static', filename=user_info.avatar)}}" class="avatar-small" alt="avatar image">
+                            <span class="text-success">&nbsp; {{user_info.username}}</span>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="/settings" class="dropdown-item active">My Account</a>
+                        <a href="/my_day" class="dropdown-item">My Day</a>
+                        <a href="/all_days" class="dropdown-item">All Days</a>
+                        <a href="/find_friends" class="dropdown-item">Find Friends</a>
+                        <div class="dropdown-content">
+                            <a href="/logout" class="btn btn-primary mr-10" role="button">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar end -->
+
+        <!-- Content wrapper start -->
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="row row-eq-spacing-lg">
+                    <div class="col center-width mx-auto">
+                        {% include '_settings.html'%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content wrapper end -->
+
+        <!-- Navbar fixed bottom start -->
+        <nav class="navbar navbar-fixed-bottom">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="navbar-text mt-10">
+                        &copy; Copyright 2022, heytonyyy
+                    </span>
+                </li>
+            </ul>
+        </nav>
+        <!-- Navbar fixed bottom end -->
+
+    </div>
+    <!-- Page wrapper end -->
+
+    <!-- Halfmoon JS -->
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+</body>
+
+</html>

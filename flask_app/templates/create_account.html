@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Fav and Title -->
+    <link rel="icon" href="{{url_for('static',filename='/site_assets/logo.png')}}">
+    <title>Everyday</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+    <!-- Halfmoon -->
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon.min.css" rel="stylesheet" />
+    <!-- Roboto font (Used when Apple system fonts are not available) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true">
+
+    <!-- Page wrapper start -->
+    <div id="page-wrapper" class="page-wrapper with-navbar with-navbar-fixed-bottom" data-sidebar-type="overlayed-sm-and-down">
+
+        <!-- Navbar start -->
+        <nav class="navbar">
+            <a href="/" class="navbar-brand ml-10 ml-sm-20">
+                <span class="d-none d-sm-flex text-secondary">Everyday</span>
+            </a>
+        </nav>
+        <!-- Navbar end -->
+        <!-- Content wrapper start -->
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="row row-eq-spacing-lg">
+                    <div class="col center-width mx-auto">
+                        <div class="card login">
+                            <h1>Create Account</h1>
+                            <form action="/make_user" method="POST">
+                                <div class="form-group">
+                                    {% with messages = get_flashed_messages(with_categories=true) %}
+                                        {% if messages %}
+                                            {% for category, message in messages %}
+                                                {% if category == 'username_taken'%}
+                                                    <p class="text-danger mt-0">{{ message }}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                    <label for="username">Username:</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                                <div class="form-group">
+                                    {% with messages = get_flashed_messages(with_categories=true) %}
+                                        {% if messages %}
+                                            {% for category, message in messages %}
+                                                {% if category == 'first_name'%}
+                                                    <p class="text-danger mt-0">{{ message }}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                    <label for="first_name">First Name:</label>
+                                    <input type="text" class="form-control" name="first_name">
+                                </div>
+                                <div class="form-group">
+                                    {% with messages = get_flashed_messages(with_categories=true) %}
+                                        {% if messages %}
+                                            {% for category, message in messages %}
+                                                {% if category == 'last_name'%}
+                                                    <p class="text-danger mt-0">{{ message }}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                    <label for="last_name">Last Name:</label>
+                                    <input type="text" class="form-control" name="last_name">
+                                </div>
+                                <div class="form-group">
+                                    {% with messages = get_flashed_messages(with_categories=true) %}
+                                        {% if messages %}
+                                            {% for category, message in messages %}
+                                                {% if category == 'email'%}
+                                                    <p class="text-danger mt-0">{{ message }}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                    {% with messages = get_flashed_messages(with_categories=true) %}
+                                        {% if messages %}
+                                            {% for category, message in messages %}
+                                                {% if category == 'email_taken'%}
+                                                    <p class="text-danger mt-0">{{ message }}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                    <label for="email">Email:</label>
+                                    <input type="text" class="form-control" name="email">
+                                </div>
+                                <div class="form-group">
+                                    {% with messages = get_flashed_messages(with_categories=true) %}
+                                        {% if messages %}
+                                            {% for category, message in messages %}
+                                                {% if category == 'password'%}
+                                                    <p class="text-danger mt-0">{{ message }}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                                <div class="form-group">
+                                    {% with messages = get_flashed_messages(with_categories=true) %}
+                                        {% if messages %}
+                                            {% for category, message in messages %}
+                                                {% if category == 'password_match'%}
+                                                    <p class="text-danger mt-0">{{ message }}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                    <label for="password_confirm">Confirm Password:</label>
+                                    <input type="password" class="form-control" name="password_confirm">
+                                </div>
+                                <input class="btn btn-primary" type="submit" value="Create Account">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content wrapper end -->
+
+        <!-- Navbar fixed bottom start -->
+        <nav class="navbar navbar-fixed-bottom">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="navbar-text mt-10">
+                        &copy; Copyright 2022, heytonyyy
+                    </span>
+                </li>
+            </ul>
+        </nav>
+        <!-- Navbar fixed bottom end -->
+
+    </div>
+    <!-- Page wrapper end -->
+
+    <!-- Halfmoon JS -->
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+</body>
+
+</html>

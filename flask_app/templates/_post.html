@@ -1,0 +1,31 @@
+<!-- name and time -->
+<div class="d-flex align-items-center px-20 justify-content-between">
+    <div class="d-flex align-items-center">
+        <img src="{{url_for('static', filename=post.avatar)}}" class="avatar-small" alt="avatar image">
+        <span class="text-success font-size-18">&nbsp; {{post.username}}</span>
+    </div>
+    <p class="text-danger font-size-18">
+        {% set deltatime = (today - post['created_at']).total_seconds() %}
+        {% if deltatime < 60: %}
+            ({{ (deltatime)|round|int }} seconds ago)
+        {% elif deltatime < 3600: %}
+            ({{ (deltatime/60)|round|int }} minutes ago)
+        {% elif deltatime < 86400: %}
+            ({{ (deltatime/3600)|round|int }} hours ago)
+        {% else: %}
+            ({{ (deltatime/86400)|round|int }} days ago)
+        {% endif %}
+    </p>
+</div>
+<!-- card content (image/description/form) -->
+<div class="card mt-0 p-0">
+    <img src="{{url_for('static', filename=post.image)}}" class="img-post rounded-top" alt="...">
+    <div class="ml-20 mr-20 mb-20">
+        <p>{{post.description}}</p>
+    </div>
+    <!-- COMMENT FORM -->
+    <form action="/add_comment/{{user_info.id}}/{{post.id}}" method="POST" class="form-inline ml-20 mr-20 mb-20">
+        <input type="text" class="form-control" placeholder="Leave a note" name="content" id="comment" required="required">
+        <input type="submit" class="btn btn-primary" value="Send">
+    </form>
+</div>

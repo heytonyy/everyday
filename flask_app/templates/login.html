@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Fav and Title -->
+    <link rel="icon" href="{{url_for('static',filename='/site_assets/logo.png')}}">
+    <title>Everyday</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+    <!-- Halfmoon -->
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon.min.css" rel="stylesheet" />
+    <!-- Roboto font (Used when Apple system fonts are not available) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark-mode with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true">
+
+    <!-- Page wrapper start -->
+    <div id="page-wrapper" class="page-wrapper with-navbar with-navbar-fixed-bottom" data-sidebar-type="overlayed-sm-and-down">
+
+        <!-- Navbar start -->
+        <nav class="navbar">
+            <a href="/" class="navbar-brand ml-10 ml-sm-20">
+                <span class="d-none d-sm-flex text-secondary">Everyday</span>
+            </a>
+        </nav>
+        <!-- Navbar end -->
+        <!-- Content wrapper start -->
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="row row-eq-spacing-lg">
+                    <div class="col center-width mx-auto">
+                        <div class="card">
+                            <div class="card-title">
+                                Login
+                            </div>
+                            <form action="/login" method="POST">
+                                <div class="form-group">
+                                    {% with messages = get_flashed_messages(with_categories=true) %}
+                                        {% if messages %}
+                                            {% for category, message in messages %}
+                                                {% if category == 'invalid'%}
+                                                    <p class="text-danger mt-0">{{ message }}</p>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                    <label for="username">Username:</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                                <input class="btn btn-primary mb-20" type="submit" value="Log In">
+                            </form>
+                            <a href="/create_account">Click here to create an account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Content wrapper end -->
+
+        <!-- Navbar fixed bottom start -->
+        <nav class="navbar navbar-fixed-bottom">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="navbar-text mt-10">
+                        &copy; Copyright 2022, heytonyyy
+                    </span>
+                </li>
+            </ul>
+        </nav>
+        <!-- Navbar fixed bottom end -->
+
+    </div>
+    <!-- Page wrapper end -->
+
+    <!-- Halfmoon JS -->
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
+</body>
+
+</html>
