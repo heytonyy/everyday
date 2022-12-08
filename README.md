@@ -19,6 +19,7 @@ This was my first ever full stack project. I accomplished many features with thi
 TODO:
 1. Host on AWS
 2. Other Ideas:
+    - clean up SQL statements
     - Make friends 2 way (Request Friend --> Accept/Reject)
     - Make the CSS bearable and pretty
     - Like feature ?
