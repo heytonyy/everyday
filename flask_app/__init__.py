@@ -53,7 +53,7 @@ POST_ABSOLUTE_PATH = '/Users/tonyaiello/Desktop/projects/everyday/flask_app/stat
 AVATAR_ABSOLUTE_PATH = '/Users/tonyaiello/Desktop/projects/everyday/flask_app/static/user_assets/account_images/'
 RELATIVE_PATH = '/Users/tonyaiello/Desktop/projects/everyday/flask_app/static/'
 
-app.secret_key = getenv('SECRET_KEY')
+app.secret_key = os.getenv('SECRET_KEY')
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 # for file upload
