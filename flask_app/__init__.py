@@ -4,6 +4,9 @@ from werkzeug.utils import secure_filename
 import os
 from uuid import uuid4
 from flask_apscheduler import APScheduler
+from dotenv import load_dotenv
+
+load_dotenv()
 
 import time
 from flask_app.config.mysqlconnection import connectToMySQL
@@ -50,7 +53,7 @@ POST_ABSOLUTE_PATH = '/Users/tonyaiello/Desktop/projects/everyday/flask_app/stat
 AVATAR_ABSOLUTE_PATH = '/Users/tonyaiello/Desktop/projects/everyday/flask_app/static/user_assets/account_images/'
 RELATIVE_PATH = '/Users/tonyaiello/Desktop/projects/everyday/flask_app/static/'
 
-app.secret_key = '212c0e936490a32fba6fe6af12c058b2413024923ad53bc33a180ee9f6e529f5'
+app.secret_key = getenv('SECRET_KEY')
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 # for file upload
