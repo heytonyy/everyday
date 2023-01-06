@@ -2,9 +2,13 @@
 ###### by: heytonyy
 
 <br>
-This is a full stack Python Flask app that emulates a simple social media website.
 
-This was my first ever full stack project. I accomplished many features with this project, which include:
+## Description:
+
+This is a full stack Python Flask app that emulates a simple social media website. This was my first ever full stacks project, and built in about 2 weeks.
+
+## Features:
+
 - Login/Reg with validations & bcrypt for hashing passwords
 - Users can make only 1 post per day, which includes image upload via form.
 - Users can change their avatar via form image upload.
@@ -16,7 +20,12 @@ This was my first ever full stack project. I accomplished many features with thi
 
 <br>
 
-TODO:
+## Video Demo
+(click on the picture to watch the video on youtube)
+
+[![Watch the video](https://img.youtube.com/vi/GdWlzwk8B3w/maxresdefault.jpg)](https://youtu.be/GdWlzwk8B3w)
+
+## TODO:
 1. Host on AWS
 2. Other Ideas:
     - clean up SQL statements
